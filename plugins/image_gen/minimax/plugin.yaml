@@ -1,0 +1,7 @@
+name: minimax
+version: 0.1.0
+description: "MiniMax Image-01 image generation backend — text-to-image & image editing with subject reference for character consistency. Uses the MiniMax Image Generation API."
+author: Derek Hsu
+kind: backend
+requires_env:
+  - MINIMAX_API_KEY
