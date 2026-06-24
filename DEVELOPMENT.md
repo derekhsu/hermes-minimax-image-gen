@@ -94,11 +94,22 @@ Response:
 | `prompt_optimizer` | bool | — | Enable prompt enhancement |
 | `aigc_watermark` | bool | — | Add AIGC watermark |
 
+## What's implemented
+
+- ✅ `generate()` for text-to-image — builds payload, calls MiniMax API, caches result
+- ✅ Image-to-image via `subject_reference` — character consistency with reference images
+- ✅ Aspect ratio mapping — Hermes landscape/square/portrait → MiniMax ratios, plus custom pass-through
+- ✅ Model selection — env var → config → default (`image-01`)
+- ✅ API key resolution — `MINIMAX_API_KEY` (global) or `MINIMAX_CN_API_KEY` (China)
+- ✅ Base URL resolution — config → env → China heuristic → global default
+- ✅ Prompt truncation at 1500 chars (MiniMax limit)
+- ✅ Business error code mapping (auth, billing, content policy, rate limit)
+- ✅ Optional params — `n`, `seed`, `prompt_optimizer`, `aigc_watermark`, `width`/`height`
+- ✅ Output caching — base64 images saved locally (same pattern as xAI), URL fallback
+
 ## TODO
 
-- [ ] Implement `generate()` for text-to-image
-- [ ] Implement image-to-image via `subject_reference`
-- [ ] Handle aspect ratio mapping (Hermes: landscape/square/portrait → MiniMax)
-- [ ] Config model selection
 - [ ] Test with real MiniMax API key
-- [ ] Publish as installable plugin
+- [ ] Verify subject_reference works in practice (character consistency flow)
+- [ ] Add more MiniMax models if/when they release (image-01-live, etc.)
+- [ ] Publish as installable plugin via pip / hermeshub tap

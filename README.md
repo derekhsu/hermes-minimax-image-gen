@@ -4,7 +4,7 @@ A [Hermes Agent](https://hermes-agent.nousresearch.com/) **image generation prov
 
 ## Status
 
-🚧 **Work in progress** — Plugin skeleton, not yet functional.
+✅ **Functional** — Text-to-image and image-to-image (subject reference) implemented. Ready for testing.
 
 ## What this does
 
